@@ -16,7 +16,7 @@
 
 
     <listener>
-        <listener-class>com.springmvc.learning.nobeanoverriding.CustomizeContextLoaderListener</listener-class>
+        <listener-class>com.springmvc.learning.listener.CustomizeContextLoaderListener</listener-class>
     </listener>
 
     <filter>
