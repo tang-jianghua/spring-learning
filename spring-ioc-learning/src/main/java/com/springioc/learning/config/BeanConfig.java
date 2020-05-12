@@ -13,9 +13,9 @@ import org.springframework.context.annotation.Scope;
 @Configuration
 public class BeanConfig {
 
-    @Bean
+   /* @Bean
     @Scope("singleton")
     public TestBean testBean(){
         return new TestBean();
-    }
+    }*/
 }
