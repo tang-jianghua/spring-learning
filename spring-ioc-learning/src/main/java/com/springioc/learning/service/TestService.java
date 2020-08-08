@@ -1,4 +1,4 @@
-package com.springioc.learning.spring1_2.aop;
+package com.springioc.learning.service;
 
 /**
  * @author tangjianghua
@@ -7,5 +7,5 @@ package com.springioc.learning.spring1_2.aop;
  */
 public interface TestService {
 
-    public void test();
+    public String test(String... args);
 }

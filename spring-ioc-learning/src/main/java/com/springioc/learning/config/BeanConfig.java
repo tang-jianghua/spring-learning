@@ -1,16 +1,17 @@
 package com.springioc.learning.config;
 
-import com.springioc.learning.beans.TestBean;
-import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Scope;
+import org.springframework.context.annotation.EnableAspectJAutoProxy;
 
 /**
  * @author tangjianghua
  * date 2020/5/9
  * time 10:40
  */
-@Configuration
+//@Configuration
+//@EnableAspectJAutoProxy
+//@ComponentScan("com.springioc.learning")
 public class BeanConfig {
 
    /* @Bean

@@ -17,7 +17,7 @@
 <!--        代理的接口-->
         <property name="proxyInterfaces">
             <list>
-                <value>com.springioc.learning.spring1_2.aop.TestService</value>
+                <value>com.springioc.learning.service.TestService</value>
             </list>
         </property>
 <!--        代理的具体实现-->
@@ -37,36 +37,37 @@
 
 <!--    aop方式2-->
 <!--    定义一个advisor-->
-    <bean id="myBeforeAdvisor" class="org.springframework.aop.support.NameMatchMethodPointcutAdvisor">
+ <!--   <bean id="myBeforeAdvisor" class="org.springframework.aop.support.NameMatchMethodPointcutAdvisor">
         <property name="advice" ref="myBeforeAdvice"/>
         <property name="mappedNames" value="test"/>
     </bean>
     <bean id="myAfterReturningAdvisor" class="org.springframework.aop.support.NameMatchMethodPointcutAdvisor">
         <property name="advice" ref="myAfterReturningAdvice"/>
         <property name="mappedNames" value="test"/>
-    </bean>
+    </bean>-->
 
-    <bean id="test2ServiceProxy" class="org.springframework.aop.framework.ProxyFactoryBean">
-        <!--        代理的接口-->
+  <!--  <bean id="test2ServiceProxy" class="org.springframework.aop.framework.ProxyFactoryBean">
+        &lt;!&ndash;        代理的接口&ndash;&gt;
         <property name="proxyInterfaces">
             <list>
                 <value>com.springioc.learning.spring1_2.aop.TestService</value>
             </list>
         </property>
-        <!--        代理的具体实现-->
+        &lt;!&ndash;        代理的具体实现&ndash;&gt;
         <property name="target" ref="testServiceImpl"/>
-        <!--        配置拦截器，这里可以配置advice ,advisor,interceptor-->
+        &lt;!&ndash;        配置拦截器，这里可以配置advice ,advisor,interceptor&ndash;&gt;
         <property name="interceptorNames">
             <list>
                 <value>myBeforeAdvisor</value>
                 <value>myAfterReturningAdvisor</value>
             </list>
         </property>
-    </bean>
+    </bean>-->
 
 
 
 <!--    aop方式3-->
+<!--
     <bean class="org.springframework.aop.framework.autoproxy.BeanNameAutoProxyCreator">
         <property name="interceptorNames">
             <list>
@@ -76,13 +77,24 @@
         </property>
         <property name="beanNames" value="testServiceImpl"/>
     </bean>
+-->
 
 
 
 <!--    aop方式4-->
     <bean class="org.springframework.aop.support.RegexpMethodPointcutAdvisor">
+        <property name="advice" ref="myBeforeAdvice"/>
+        <property name="patterns" value="com.springioc.learning.service.*Impl.*"/>
+    </bean>
+
+    <bean class="org.springframework.aop.support.RegexpMethodPointcutAdvisor">
         <property name="advice" ref="myAfterReturningAdvice"/>
-        <property name="patterns" value="com.springioc.learning.spring1_2.aop.*Impl.*"/>
+        <property name="patterns" value="com.springioc.learning.service.*Impl.*"/>
+    </bean>
+
+    <bean class="org.springframework.aop.support.RegexpMethodPointcutAdvisor">
+        <property name="advice" ref="debugInterceptor"/>
+        <property name="patterns" value="com.springioc.learning.service.*Impl.*"/>
     </bean>
 
     <bean class="org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator"/>

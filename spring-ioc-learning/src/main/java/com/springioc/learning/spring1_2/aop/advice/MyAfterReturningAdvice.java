@@ -10,7 +10,7 @@ import java.lang.reflect.Method;
  * date 2020/5/12
  * time 17:12
  */
-@Component
+//@Component
 public class MyAfterReturningAdvice implements AfterReturningAdvice {
 
     @Override

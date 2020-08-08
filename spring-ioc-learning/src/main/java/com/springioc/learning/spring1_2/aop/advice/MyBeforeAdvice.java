@@ -11,7 +11,7 @@ import java.lang.reflect.Method;
  * date 2020/5/12
  * time 17:16
  */
-@Component
+//@Component
 public class MyBeforeAdvice implements MethodBeforeAdvice {
 
     @Override
